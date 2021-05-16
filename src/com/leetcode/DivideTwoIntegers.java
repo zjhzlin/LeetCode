@@ -17,11 +17,14 @@ public class DivideTwoIntegers {
         // sign positive or negative
         int sign = 1;
         if ( (dividend < 0 && divisor > 0) || (dividend > 0 && divisor < 0) ) sign = -1;
+
         if (divisor == 1 || divisor == -1) {
             if (dividend == Math.pow(-2,31)) {
                 return (int) (sign * (Math.pow(2,31) -1));
             }
         }
+
+
 
         // make dividend and divisor absolute value and subtract
         int quotient = 0;
