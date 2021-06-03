@@ -34,15 +34,29 @@ public class InorderTraversal {
           }
     }
 
-    public List<Integer> Traversal(TreeNode root) {
-        if (root == null) return null;
+    // use recursive
+    public List<Integer> Traversal(TreeNode root) {     // inorder traversal
         ArrayList<Integer> result = new ArrayList<Integer>();
 
+        if (root == null) return result;
+
         // traversal the left node
-        r
+        if (root.left != null) {
+            List<Integer> leftList = Traversal(root.left);
+            for (int i = 0; i < leftList.size(); i++)
+                result.add(leftList.get(i));
+        }
+
         // traversal the root
+        result.add(root.val);
 
         // traversal the right node
+        if (root.right != null) {
+            List<Integer> rightList = Traversal(root.right);
+            for (int i = 0; i < rightList.size(); i++)
+                result.add(rightList.get(i));
+        }
+        return result;
 
     }
 
