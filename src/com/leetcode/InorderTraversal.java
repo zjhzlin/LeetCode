@@ -2,6 +2,7 @@ package com.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class InorderTraversal {
 
@@ -59,6 +60,30 @@ public class InorderTraversal {
         return result;
 
     }
+
+    // iteratively - use stack!!!
+    public List<Integer> IterativeTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if (root == null) return result;
+        Stack<TreeNode> stack = new Stack<>();
+
+        TreeNode current = root;
+
+        while (current != null || !stack.isEmpty()) {
+            while(current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+            current = stack.pop();
+            result.add(current.val);
+            current = current.right;
+
+            // go far left
+            // update the
+        }
+
+    }
+
 
     public static void main(String[] args) {
 
